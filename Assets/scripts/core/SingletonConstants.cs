@@ -2,11 +2,13 @@
 using System.Collections;
 
 public class SingletonConstants {
-	public static string USER_SERVICE{
-		get{
-			return "UserService";
-		}
+
+	public static class Service{
+		public static string USER_SERVICE="UserService";
+		public static string FARM_SERVICE = "FarmService";
+		public static string CASTLE_SERVICE="CastleService";
 	}
+
 
 	public static string HTTP_UTIL{
 		get{
@@ -18,6 +20,10 @@ public class SingletonConstants {
 		get{
 			return "SlgDispatcher";
 		}
+	}
+
+	public static class VO{
+		public static string USER="User";
 	}
 
 	public static class View{

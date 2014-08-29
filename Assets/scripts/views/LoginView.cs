@@ -8,8 +8,8 @@ public class LoginView :MonoBehaviour {
 	public string password;
 
 	public void Start(){
-		UserService serv = Singleton.getInstance (SingletonConstants.USER_SERVICE) as UserService;
-		serv.view = this;
+		UserService serv = Singleton.getInstance (SingletonConstants.Service.USER_SERVICE) as UserService;
+		serv.loginView = this;
 	}
 
 	public void OnGUI(){
