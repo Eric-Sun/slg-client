@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SlgConstants  {
 
-	public static string authKey = "";
-	public static string authTime = System.DateTime.Now.Ticks+"";
-	public static string uid;
+	public static string authKey = "0";
+	public static string authTime = "111";
+	public static string uid = "0";
 
 }

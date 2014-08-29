@@ -20,4 +20,17 @@ public class SingletonConstants {
 		}
 	}
 
+	public static class View{
+		public static string INDEX_VIEW{
+			get{
+				return "indexView";
+			}
+		}
+
+		public static string LOGIN_VIEW{
+			get{
+				return "LoginView";
+			}
+		}
+	}
 }

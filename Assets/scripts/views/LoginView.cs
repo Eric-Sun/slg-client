@@ -6,7 +6,11 @@ public class LoginView :MonoBehaviour {
 	
 	public string account;
 	public string password;
-	public HttpUtil http ;
+
+	public void Start(){
+		UserService serv = Singleton.getInstance (SingletonConstants.USER_SERVICE) as UserService;
+		serv.view = this;
+	}
 
 	public void OnGUI(){
 		account = GUI.TextField (new Rect (25, 25, 100, 30), account);
@@ -19,6 +23,10 @@ public class LoginView :MonoBehaviour {
 			SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
 			dispatcher.send(cmd);
 		}
+	}
 
+	public void toIndexView(){
+		Debug.Log ("do jump");
+		Application.LoadLevel("index");
 	}
 }

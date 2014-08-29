@@ -11,6 +11,8 @@ public class HttpUtil : MonoBehaviour {
 		form.AddField ("act", cmd.act);
 		form.AddField ("auth_key", cmd.authKey);
 		form.AddField ("auth_time", cmd.authTime);
+		form.AddField ("uid", SlgConstants.uid);
+		Debug.Log (SlgConstants.uid);
 		form.AddField ("args", JsonMapper.ToJson(cmd.ht));
 		form.AddField ("seq", 1);
 
