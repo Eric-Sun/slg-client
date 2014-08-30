@@ -7,9 +7,9 @@ public class FarmService : MonoBehaviour {
 	public IndexView indexView;
 
 	public void harvestHandler(JsonData jsonData){
-		int gold = int.Parse(jsonData["data"]["gold"].ToString());
+		int food = int.Parse(jsonData["data"]["food"].ToString());
 		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
-		user.gold = gold;
+		user.food = user.food+food;
 		indexView.user = user;
 	}
 

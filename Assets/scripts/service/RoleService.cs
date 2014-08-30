@@ -6,7 +6,12 @@ public class RoleService : MonoBehaviour {
 
 	public void userRoleListHandler(JsonData jsonData)
 	{
-		ArrayList list = jsonData ["data"] ["list"];
+		JsonData roleLists = jsonData ["data"] ["list"];
+		Debug.Log (roleLists.Count);
+		for(int i=0;i<roleLists.Count;i++)
+		{
+			Debug.Log (roleLists[i]["health"]);
+		}
 
 	}
 

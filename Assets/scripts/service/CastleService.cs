@@ -7,9 +7,9 @@ public class CastleService : MonoBehaviour {
 	public IndexView indexView;
 
 	public void harvestHandler(JsonData jsonData){
-		int food = int.Parse(jsonData["data"]["food"].ToString());
+		int gold = int.Parse(jsonData["data"]["gold"].ToString());
 		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
-		user.food = food;
+		user.gold = user.gold+gold;
 		indexView.user = user;
 	}
 

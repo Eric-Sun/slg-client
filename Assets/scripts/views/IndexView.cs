@@ -38,14 +38,14 @@ public class IndexView : MonoBehaviour {
 			GUI.Label(new Rect(20,160,80,20),"名称:"+user.name);
 	
 
-			if (GUI.Button(new Rect(),"收获金币")){
+			if (GUI.Button(new Rect(20,180,80,20),"收获金币")){
 				Command cmd = new Command("castle","harvest",new Hashtable());
 				SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
 				dispatcher.send(cmd);
 			}
 		
 
-			if (GUI.Button(new Rect(),"收获粮食")){
+			if (GUI.Button(new Rect(20,200,80,20),"收获粮食")){
 				Command cmd = new Command("farm","harvest",new Hashtable());
 				SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
 				dispatcher.send(cmd);
