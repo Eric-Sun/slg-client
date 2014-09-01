@@ -9,6 +9,7 @@ public class SingletonConstants {
 		public static string CASTLE_SERVICE="CastleService";
 	}
 
+	public static string VIEW_PARAMETER = "ViewParameter";
 
 	public static string HTTP_UTIL{
 		get{

@@ -38,25 +38,68 @@ public class IndexView : MonoBehaviour {
 			GUI.Label(new Rect(20,160,80,20),"名称:"+user.name);
 	
 
-			if (GUI.Button(new Rect(20,180,80,20),"收获金币")){
-				Command cmd = new Command("castle","harvest",new Hashtable());
-				SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
-				dispatcher.send(cmd);
-			}
-		
-
-			if (GUI.Button(new Rect(20,200,80,20),"收获粮食")){
-				Command cmd = new Command("farm","harvest",new Hashtable());
-				SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
-				dispatcher.send(cmd);
-			}
-
+			CreateFunctionalButton();
 			
 		}
 						
 
 
 	}
-	
 
+	public void CreateFunctionalButton(){
+		// left hand buttons 
+		// include getGold,myRoleList,myPackage,tavern,zuling
+		if (GUI.Button(new Rect(20,180,80,20),"收获金币")){
+			Command cmd = new Command("castle","harvest",new Hashtable());
+			SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
+			dispatcher.send(cmd);
+		}
+
+		if (GUI.Button (new Rect (20, 200, 80, 20), "我的将领")) 
+		{
+			Application.LoadLevel("roleList");
+		}
+
+		if (GUI.Button (new Rect (20, 220, 80, 20), "我的背包")) 
+		{
+			Application.LoadLevel("package");
+		}
+
+		if (GUI.Button (new Rect (20, 240, 80, 20), "酒馆")) 
+		{
+			Application.LoadLevel("tavern");
+		}
+		if (GUI.Button (new Rect (20, 260, 80, 20), "祖灵地之旅")) 
+		{
+			Application.LoadLevel("zuling");
+		}
+
+
+		//  right hand buttons 
+		// include getGold,shop,team,fight
+		if (GUI.Button(new Rect(110,180,80,20),"收获粮食")){
+			Command cmd = new Command("farm","harvest",new Hashtable());
+			SlgDispatcher dispatcher = Singleton.getInstance(SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
+			dispatcher.send(cmd);
+		}
+
+		if (GUI.Button (new Rect (110, 200, 80, 20), "商店")) 
+		{
+			Application.LoadLevel("shop");
+		}
+
+		if (GUI.Button (new Rect (110, 220, 80, 20), "阵容")) 
+		{
+			Application.LoadLevel("team");
+		}
+
+		if (GUI.Button (new Rect (110, 240, 80, 20), "战斗")) 
+		{
+			Application.LoadLevel("fight");
+		}
+
+	
+	}
+	
+	
 }

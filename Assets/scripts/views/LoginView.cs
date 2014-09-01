@@ -15,7 +15,7 @@ public class LoginView :MonoBehaviour {
 	public void OnGUI(){
 		account = GUI.TextField (new Rect (25, 25, 100, 30), account);
 		password = GUI.TextField (new Rect (25, 60, 100, 30), password);
-		if (GUI.Button (new Rect (25, 95, 100, 30), "fdsafsa")) {
+		if (GUI.Button (new Rect (25, 95, 100, 30), "登陆")) {
 			Hashtable ht  =new Hashtable();
 			ht.Add("name",account);
 			ht.Add ("password",password);

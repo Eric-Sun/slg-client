@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UserRole : MonoBehaviour {
+public class UserRole {
 
 	public int id;
 	public string name;
@@ -14,6 +14,8 @@ public class UserRole : MonoBehaviour {
 	public int fightForce;
 	public int roleId;
 	public int level;
-
+	public string roleName;
+	public RoleSkill putong;
+	public RoleSkill tianfu;
 
 }
