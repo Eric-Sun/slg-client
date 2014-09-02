@@ -24,6 +24,27 @@ public class IndexView : MonoBehaviour {
 			Command cmd2 = new Command("role","userRoleList",new Hashtable());
 			dispatcher.send (cmd2);
 			loadIndex = true;
+
+			dispatcher = Singleton.getInstance (SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
+			Hashtable ht = new Hashtable ();
+			ht.Add ("type", "weapon");
+			cmd = new Command("equip","noUsedEquipList",ht);
+			dispatcher.send (cmd);
+
+
+			dispatcher = Singleton.getInstance (SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
+			ht.Clear();
+			ht = new Hashtable ();
+			ht.Add ("type", "armor");
+			cmd = new Command("equip","noUsedEquipList",ht);
+			dispatcher.send (cmd);
+
+			dispatcher = Singleton.getInstance (SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
+			ht.Clear();
+			ht = new Hashtable ();
+			ht.Add ("type", "accessory");
+			cmd = new Command("equip","noUsedEquipList",ht);
+			dispatcher.send (cmd);
 		}
 
 		if (user != null) {

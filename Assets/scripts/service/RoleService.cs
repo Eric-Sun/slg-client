@@ -4,13 +4,16 @@ using LitJson;
 
 public class RoleService : MonoBehaviour {
 
+	public WearEquipView wearEquipView ;
+
 	public void userRoleListHandler(JsonData jsonData)
 	{
 		JsonData roleLists = jsonData ["data"] ["list"];
 		Debug.Log (roleLists.Count);
 		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
-		user.userRoles = new ArrayList ();
+		user.userRolesMap = new Hashtable ();
 		user.equipMap = new Hashtable ();
+		Debug.Log ("role list count = " + roleLists.Count);
 		for(int i=0;i<roleLists.Count;i++)
 		{
 			JsonData item = roleLists[i];
@@ -26,7 +29,8 @@ public class RoleService : MonoBehaviour {
 			ur.roleId = int.Parse(item["roleId"].ToString());
 			ur.roleName = item["roleName"].ToString();
 			ur.level = int.Parse(item["level"].ToString());
-			user.userRoles.Add(ur);
+			user.userRolesMap.Add (ur.id,ur);
+			Debug.Log ("add 1");
 			if(ur.accessory!=0)
 			{
 				JsonData accessoryInfo= item["accessoryInfo"];
@@ -81,6 +85,32 @@ public class RoleService : MonoBehaviour {
 		e.name = jsonData ["name"].ToString ();
 		e.level = int.Parse (jsonData ["level"].ToString ());
 		equipMap.Add (e.id, e);
+	}
+
+	public void wearHandler(JsonData jsonData){
+		int urid = int.Parse (jsonData ["args"] ["urid"].ToString ());
+		int ueid = int.Parse(jsonData["args"]["ueid"].ToString());
+		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
+		UserRole currentRole = null;
+		// find user role
+		currentRole = (UserRole)user.userRolesMap [urid];
+		Equipment e = (Equipment)user.noUsedEquipMap[ueid];
+		if(e.type.Equals("weapon"))
+		{
+			currentRole.weapon = e.id;
+		}
+		if(e.type.Equals("armor"))
+		{
+			currentRole.armor = e.id;
+		}
+		if(e.type.Equals("accessory"))
+		{
+			currentRole.accessory = e.id;
+		}
+		user.noUsedEquipMap.Remove (e.id);
+		user.equipMap.Add (e.id, e);
+
+		wearEquipView.jump ();
 	}
 
 

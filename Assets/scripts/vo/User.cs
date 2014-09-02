@@ -17,7 +17,7 @@ public class User: MonoBehaviour {
 	public long castleTimer;
 	public long farmTimer;
 
-	public ArrayList userRoles = new ArrayList();
+	public Hashtable userRolesMap = new Hashtable();
 
 	public Hashtable equipMap = new Hashtable();
 

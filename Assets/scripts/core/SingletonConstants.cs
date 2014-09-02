@@ -7,6 +7,7 @@ public class SingletonConstants {
 		public static string USER_SERVICE="UserService";
 		public static string FARM_SERVICE = "FarmService";
 		public static string CASTLE_SERVICE="CastleService";
+		public static string ROLE_SERVICE = "RoleService";
 	}
 
 	public static string VIEW_PARAMETER = "ViewParameter";

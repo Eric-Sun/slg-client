@@ -60,9 +60,10 @@
      <Compile Include="Assets\scripts\util\SlgCache.cs" />
      <Compile Include="Assets\scripts\util\command\Command.cs" />
      <Compile Include="Assets\scripts\util\command\HttpUtil.cs" />
+     <Compile Include="Assets\scripts\views\EquipDetailView.cs" />
      <Compile Include="Assets\scripts\views\IndexView.cs" />
      <Compile Include="Assets\scripts\views\LoginView.cs" />
-     <Compile Include="Assets\scripts\views\RoleLlistView.cs" />
+     <Compile Include="Assets\scripts\views\RoleListView.cs" />
      <Compile Include="Assets\scripts\views\WearEquipView.cs" />
      <Compile Include="Assets\scripts\vo\Equipment.cs" />
      <Compile Include="Assets\scripts\vo\RoleSkill.cs" />
