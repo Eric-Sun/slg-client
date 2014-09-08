@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LitJson;
+using System.Collections.Generic;
 
-public class CastleService : MonoBehaviour {
+public class CastleService : MonoSingleton<CastleService>
+{
+	
 
-	public IndexView indexView;
-
-	public void harvestHandler(JsonData jsonData){
-		int gold = int.Parse(jsonData["data"]["gold"].ToString());
-		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
-		user.gold = user.gold+gold;
-		indexView.user = user;
-	}
+		public void harvestHandler (Dictionary<string,object> args, Dictionary<string,object> data)
+		{
+				int gold = int.Parse (data ["gold"].ToString ());
+				User user = User.Instance;
+				user.gold = user.gold + gold;
+		}
 
 
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class User: MonoBehaviour {
+public class User: MonoSingleton<User> {
 
 	public int id;
 	public int gold;

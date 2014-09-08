@@ -1,25 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EquipDetailView : MonoBehaviour {
 
 
 	private int ueid=0;
-	private int urid;
+	private int urid=0;
 	private UserRole userRole=null;
 	private Equipment e;
 	private SlgDispatcher dis ;
 
 	// Use this for initialization
 	void Start () {
-		ViewParameter viewParameter = Singleton.getInstance (SingletonConstants.VIEW_PARAMETER) as ViewParameter;
+		ViewParameter viewParameter = ViewParameter.Instance;
 		int ueid = viewParameter.getIntValue ("ueid");
 		int urid = viewParameter.getIntValue ("urid");
-		Hashtable userRolesMap = (Singleton.getInstance (SingletonConstants.VO.USER) as User).userRolesMap;
+		Hashtable userRolesMap = User.Instance.userRolesMap;
 		userRole = (UserRole)userRolesMap [urid];
-		e = (Equipment) (Singleton.getInstance (SingletonConstants.VO.USER) as User).equipMap [ueid];
-
-		dis = Singleton.getInstance (SingletonConstants.SLG_DISPATCHER) as SlgDispatcher;
+		e = (Equipment) (User.Instance).equipMap [ueid];
+		dis = SlgDispatcher.Instance;
 	}
 	
 	// Update is called once per frame
@@ -34,10 +34,10 @@ public class EquipDetailView : MonoBehaviour {
 			GUI.Label(new Rect(20,20,80,20),e.name);
 			if(GUI.Button(new Rect(20,40,80,20),"drop Equip"))
 			{
-				Hashtable ht = new Hashtable();
-				ht.Add ("ueid",ueid);
-				ht.Add ("urid",urid);
-				Command cmd = new Command("role","takeOff",ht);
+				Dictionary<string,object> dic = new Dictionary<string,object>();
+				dic.Add ("ueid",ueid);
+				dic.Add ("urid",urid);
+				Command cmd = new Command("role","takeOff",dic);
 				dis.send(cmd);
 			}
 

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LitJson;
+using System.Collections.Generic;
 
-public class HttpUtil : MonoBehaviour {
+public class HttpUtil : MonoSingleton<HttpUtil> {
 	private static string URL = "http://42.62.61.41:8080/slg/";
 
 	public  void Post(Command cmd,SlgDispatcher dispatcher){
@@ -12,8 +12,7 @@ public class HttpUtil : MonoBehaviour {
 		form.AddField ("auth_key", cmd.authKey);
 		form.AddField ("auth_time", cmd.authTime);
 		form.AddField ("uid", SlgConstants.uid);
-		Debug.Log (SlgConstants.uid);
-		form.AddField ("args", JsonMapper.ToJson(cmd.ht));
+		form.AddField ("args", JsonUtil.ToJson(cmd.dic));
 		form.AddField ("seq", 1);
 
 		WWW download = new WWW (URL, form);
@@ -23,7 +22,7 @@ public class HttpUtil : MonoBehaviour {
 
 	IEnumerator B(WWW download,SlgDispatcher dispatcher){
 		yield return download; 
-		JsonData response = JsonMapper.ToObject (download.text);
+		Dictionary<string,object> response = JsonUtil.ParseDictionary (download.text);
 
 		dispatcher.handle (response);
 

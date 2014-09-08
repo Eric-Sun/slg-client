@@ -2,7 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/service/EquipService.cs">
     <Files>
-      <File FileName="Assets/scripts/service/EquipService.cs" Line="23" Column="32" />
+      <File FileName="Assets/scripts/service/RoleService.cs" Line="16" Column="38" />
+      <File FileName="Assets/scripts/service/CastleService.cs" Line="13" Column="34" />
+      <File FileName="Assets/scripts/views/EquipDetailView.cs" Line="40" Column="8" />
+      <File FileName="Assets/scripts/service/EquipService.cs" Line="29" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

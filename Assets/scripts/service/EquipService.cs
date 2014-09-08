@@ -1,32 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LitJson;
+using System.Collections.Generic;
 
-public class EquipService : MonoBehaviour {
+public class EquipService : MonoSingleton<EquipService>
+{
 
 
-	public void noUsedEquipListHandler(JsonData jsonData)
-	{
-		string type = jsonData["args"]["type"].ToString();
-		JsonData equipList = jsonData["data"]["equipList"];
-		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
-	
-		for(int i=0;i<equipList.Count;i++)
+		public void noUsedEquipListHandler (Dictionary<string,object> args, Dictionary<string,object> data)
 		{
-			Equipment e = new Equipment();
-			JsonData json = equipList[i];
-			Debug.Log (json.ToJson());
-			e.id = int.Parse(json["id"].ToString());
-			e.level = int.Parse(json["level"].ToString());
-			e.name = json["name"].ToString();
-			e.urid = int.Parse(json["urid"].ToString());
-			e.strength = int.Parse (json ["strength"].ToString ());
-			e.type = type;
-			user.noUsedEquipMap.Add (e.id, e);
+				string type = args ["type"] as string;
+				List<object> equipList = data ["equipList"] as List<object>;
+				User user = User.Instance;
+	
+				for (int i=0; i<equipList.Count; i++) {
+						Equipment e = new Equipment ();
+						Dictionary<string,object> json = equipList [i] as Dictionary<string,object>;
+						e.id = int.Parse (json ["id"].ToString ());
+						e.level = int.Parse (json ["level"].ToString ());
+						e.name = json ["name"].ToString ();
+						e.urid = int.Parse (json ["urid"].ToString ());
+						e.strength = int.Parse (json ["strength"].ToString ());
+						e.type = type;
+						user.noUsedEquipMap.Add (e.id, e);
+				}
+
+
+
 		}
-
-
-
-	}
 
 }

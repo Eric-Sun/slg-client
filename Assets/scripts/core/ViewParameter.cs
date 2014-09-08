@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ViewParameter : MonoBehaviour {
+public class ViewParameter : MonoSingleton<ViewParameter> {
 
 
 	private Hashtable p = null;

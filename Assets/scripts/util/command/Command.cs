@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Command {
 
@@ -9,12 +10,12 @@ public class Command {
 	public string authTime = SlgConstants.authTime;
 	public string uid = SlgConstants.uid;
 	public int seq;
-	public Hashtable ht;
+	public Dictionary<string,object> dic;
 
-	public Command(string mod,string act,Hashtable ht){
+	public Command(string mod,string act,Dictionary<string,object> dic){
 		this.act = act;
 		this.mod = mod;
-		this.ht = ht;
+		this.dic = dic;
 	}
 
 

@@ -46,8 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\core\CacheKeyConstants.cs" />
-     <Compile Include="Assets\scripts\core\SingletonConstants.cs" />
+     <Compile Include="Assets\scripts\core\MonoSingleton.cs" />
      <Compile Include="Assets\scripts\core\SlgConstants.cs" />
      <Compile Include="Assets\scripts\core\SlgDispatcher.cs" />
      <Compile Include="Assets\scripts\core\ViewParameter.cs" />
@@ -56,8 +55,8 @@
      <Compile Include="Assets\scripts\service\FarmService.cs" />
      <Compile Include="Assets\scripts\service\RoleService.cs" />
      <Compile Include="Assets\scripts\service\UserService.cs" />
-     <Compile Include="Assets\scripts\util\Singleton.cs" />
-     <Compile Include="Assets\scripts\util\SlgCache.cs" />
+     <Compile Include="Assets\scripts\util\JsonUtil.cs" />
+     <Compile Include="Assets\scripts\util\MiniJson.cs" />
      <Compile Include="Assets\scripts\util\command\Command.cs" />
      <Compile Include="Assets\scripts\util\command\HttpUtil.cs" />
      <Compile Include="Assets\scripts\views\EquipDetailView.cs" />
@@ -70,9 +69,6 @@
      <Compile Include="Assets\scripts\vo\User.cs" />
      <Compile Include="Assets\scripts\vo\UserRole.cs" />
      <Compile Include="Assets\scripts\vo\WearEquip.cs" />
- <Reference Include="LitJson">
- <HintPath>/Users/sunbo/project/h13/slg-client/Assets/scripts/util/command/LitJson.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LitJson;
+using System.Collections.Generic;
 
-public class FarmService : MonoBehaviour {
+public class FarmService : MonoSingleton<FarmService>
+{
 
-	public IndexView indexView;
+		public IndexView indexView;
 
-	public void harvestHandler(JsonData jsonData){
-		int food = int.Parse(jsonData["data"]["food"].ToString());
-		User user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
-		user.food = user.food+food;
-		indexView.user = user;
-	}
+		public void harvestHandler (Dictionary<string,object> args, Dictionary<string,object> data)
+		{
+				int food = int.Parse(data ["food"].ToString());
+				User user = User.Instance;
+				user.food = user.food + food;
+				indexView.user = user;
+		}
 
 	
 }

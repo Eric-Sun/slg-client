@@ -11,8 +11,8 @@ public class RoleListView : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		userRolesMap = (Singleton.getInstance (SingletonConstants.VO.USER) as User).userRolesMap;
-		user = Singleton.getInstance (SingletonConstants.VO.USER) as User;
+		userRolesMap = User.Instance.userRolesMap;
+		user = User.Instance;
 		Debug.Log ("user role map = "+ user.userRolesMap.Count);
 		started = true;
 	
@@ -62,7 +62,7 @@ public class RoleListView : MonoBehaviour {
 				Hashtable ht = new Hashtable();
 				ht.Add ("type","weapon");
 				ht.Add("urid",currentUserRole.id);
-				ViewParameter v = Singleton.getInstance(SingletonConstants.VIEW_PARAMETER) as ViewParameter;
+				ViewParameter v = ViewParameter.Instance;
 				v.SetParams(ht);
 				Application.LoadLevel("wearEquip");
 			}
@@ -75,7 +75,7 @@ public class RoleListView : MonoBehaviour {
 				ht.Add ("type","weapon");
 				ht.Add("ueid",m.id);
 				ht.Add("urid",currentUserRole.id);
-				ViewParameter v = Singleton.getInstance(SingletonConstants.VIEW_PARAMETER) as ViewParameter;
+				ViewParameter v = ViewParameter.Instance;
 				v.SetParams(ht);
 				Application.LoadLevel("equipDetail");
 			}
